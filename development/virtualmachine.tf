@@ -30,8 +30,8 @@ resource "azurerm_subnet" "internal" {
 
 resource "azurerm_network_interface" "main" {
   name                = "${var.prefix}-nic"
-  location            = local.azurerm_resource_group.regis-jean-rg.location
-  resource_group_name = local.azurerm_resource_group.regis-jean-rg.name
+  location            = azurerm_resource_group.regis-jean-rg.location
+  resource_group_name = azurerm_resource_group.regis-jean-rg.name
 
   ip_configuration {
     name                          = "testconfiguration1"
