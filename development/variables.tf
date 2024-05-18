@@ -33,7 +33,7 @@ variable "nameofmyazurermrg" {
 
 variable "resource_group_name_network_name" {
   type = string
-  default = "regis-jean-rg"
+  default = "regis-jean-rg-test"
 }
 
 variable "resource_group_name_network_location" {
