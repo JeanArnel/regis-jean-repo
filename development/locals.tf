@@ -48,9 +48,9 @@ locals {
 //  network_name        = "${var.prefix}-network"
 //  nic_name            = "${var.prefix}-nic"
 //  vm_name             = "${var.prefix}-vm"
-    network_name        = "network"
-    nic_name            = "nic"
-    vm_name             = "vm"
+//  network_name        = "network"
+//  nic_name            = "nic"
+//  vm_name             = "vm"
 
 
   # Network configurations
