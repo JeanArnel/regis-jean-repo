@@ -42,8 +42,8 @@ resource "azurerm_network_interface" "main" {
 
 resource "azurerm_virtual_machine" "main" {
   name                  = "${var.prefix}-vm"
-  location              = local.azurerm_resource_group.regis-jean-rg.location
-  resource_group_name   = local.azurerm_resource_group.regis-jean-rg.name
+  location              = azurerm_resource_group.regis-jean-rg.location
+  resource_group_name   = azurerm_resource_group.regis-jean-rg.name
   network_interface_ids = [azurerm_network_interface.main.id]
   vm_size               = "Standard_DS1_v2"
 
