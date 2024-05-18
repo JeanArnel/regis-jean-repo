@@ -11,17 +11,17 @@ locals {
   # For each 'app', it attempts to iterate over 'listofmsqlapp' if it exists.
   # If 'listofmsqlapp' does not exist, it defaults to an empty list ([]).
   # For each 'mysqlapps' in 'listofmsqlapp', it creates a map with a single key 'name'.
-  myregissql_app_list = flatten([
-    for app in local.myregissql_app : [
-      for mysqlapps in try(app.listofmsqlapp, []) : {
-        name = mysqlapps.name
+  virtualmachine_list = flatten([
+    for virtualmachine in local.virtualmachine_app : [
+      for virtualmachineapp in try(app.listofvirtualmachines, []) : {
+        name = virtualmachines.name
       }
     ]
   ])
 }
 
 
-
+/*
 
 locals {
   # Common tags for all resources
@@ -50,6 +50,11 @@ locals {
   os_sku       = "22_04-lts"
   os_version   = "latest"
 }
+*/
+
+
+
+
 
 /*
 # Then, you can reference these local values in your resources like this:
