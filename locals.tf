@@ -6,7 +6,7 @@ locals {
   }
 
   # Common location for all resources
-  location = "West Europe"
+  location = "canadacentral"
 
   # Resource names
   resource_group_name = "${var.prefix}-resources"
