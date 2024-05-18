@@ -14,11 +14,12 @@ variable "tenant_id"{
 //
 //
 
+/*
+
 variable "prefix" {
   default = "tfvmex"
 }
 
-/*
 variable "nameofmyazurermrg" {
   type = string
   default = "regis-jean-rg-test"
