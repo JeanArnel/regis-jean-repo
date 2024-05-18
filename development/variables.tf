@@ -24,3 +24,32 @@ variable "nameofmyazurermrg" {
   default = "regis-jean-rg-test"
 }
 */
+
+//
+//
+// virtual network variables
+//
+//
+
+variable "resource_group_name_network_name" {
+  type = string
+  default = "regis-jean-rg"
+}
+
+variable "resource_group_name_network_location" {
+  type = string
+  default = "canadacentral"
+}
+
+
+
+
+resource "azurerm_virtual_network" "main" {
+  name                = "${var.prefix}-network"
+  address_space       = ["10.0.0.0/16"]
+//  location            = local.azurerm_resource_group.regis-jean-rg.location
+//  location            = azurerm_resource_group.${var.regis-jean-rg}.location
+//  resource_group_name = local.azurerm_resource_group.regis-jean-rg.name
+  location            = azurerm_resource_group.regis-jean-rg.location
+  resource_group_name = azurerm_resource_group.regis-jean-rg.name
+}
