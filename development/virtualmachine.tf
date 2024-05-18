@@ -37,7 +37,8 @@ resource "azurerm_network_interface" "main" {
 resource "azurerm_virtual_machine" "main" {
   for_each              = local.virtual_machines_map
   name                  = each.value.name
-  location              = azurerm_resource_group.regis-jean-rg.location
+//  location              = azurerm_resource_group.regis-jean-rg.location
+  location              = each.value.location
   resource_group_name   = azurerm_resource_group.regis-jean-rg.name
   network_interface_ids = [azurerm_network_interface.main[each.key].id]
   vm_size               = "Standard_DS1_v2"
