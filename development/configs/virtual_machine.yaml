@@ -9,4 +9,26 @@ virtual_machines:
     size: "Standard_DS2_v2"
     tags:
       environment: "production"
+
+ - name: "vm3-windows"
+    location: "West Europe"
+    size: "Standard_DS1_v2"
+    tags:
+      environment: "staging"
+  - name: "vm4-linux"
+    location: "canadacentral"
+    size: "Standard_DS2_v2"
+    tags:
+      environment: "production"
+
+  - name: "vm5-macOS"
+    location: "West Europe"
+    size: "Standard_DS1_v2"
+    tags:
+      environment: "staging"
+  - name: "vm6-linux"
+    location: "canadacentral"
+    size: "Standard_DS2_v2"
+    tags:
+      environment: "production"
   # Add more virtual machines as needed
