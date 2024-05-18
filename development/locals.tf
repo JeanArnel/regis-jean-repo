@@ -3,7 +3,7 @@ locals {
   # This creates a list of maps by decoding YAML files found in the specified directory.
   # It uses a fileset function to find all .yaml files that do not start with an underscore.
   virtualmachine_app = [
-    for f in fileset("${path.module}/config", "[^_]*.yaml") : 
+    for vm in fileset("${path.module}/config", "[^_]*.yaml") : 
       yamldecode(file("${path.module}/config/${f}"))
   ]
 
