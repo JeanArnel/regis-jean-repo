@@ -1,4 +1,5 @@
 resource "azurerm_virtual_network" "main" {
+  for_each            = local.virtual_machines_map
   name                = "${var.prefix}-network"
   address_space       = var.resource_group_name_network_address
 //  location            = local.azurerm_resource_group.regis-jean-rg.location
