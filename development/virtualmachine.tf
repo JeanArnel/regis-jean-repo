@@ -13,13 +13,25 @@ resource "azurerm_resource_group" "example" {
 
 resource "azurerm_virtual_network" "main" {
   name                = "${var.prefix}-network"
-  address_space       = ["10.0.0.0/16"]
+  address_space       = var.resource_group_name_network_address
 //  location            = local.azurerm_resource_group.regis-jean-rg.location
 //  location            = azurerm_resource_group.${var.regis-jean-rg}.location
 //  resource_group_name = local.azurerm_resource_group.regis-jean-rg.name
-  location            = azurerm_resource_group.regis-jean-rg.location
-  resource_group_name = azurerm_resource_group.regis-jean-rg.name
+  location            = var.resource_group_name_network_location
+  resource_group_name = var.resource_group_name_network_name
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 resource "azurerm_subnet" "internal" {
   name                 = "internal"
