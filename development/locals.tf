@@ -39,12 +39,6 @@ locals {
   # Create a map where the key is the VM name, and the value is the VM configuration
   virtual_machines_map = { for vm in local.virtual_machines_config.virtual_machines : vm.name => vm }
 
-
-
-
-
-  virtual_machines_map_location = { for vm in local.virtual_machines_config.virtual_machines : vm.location => vm }
-
   # Common location for all resources
 //  location = "canadacentral"
 
