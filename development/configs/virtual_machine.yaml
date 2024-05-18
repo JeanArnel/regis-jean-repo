@@ -1,10 +1,10 @@
 virtual_machines:
-  - name: "${prefix}-vm1"
+  - name: "vm1"
     location: "West Europe"
     size: "Standard_DS1_v2"
     tags:
       environment: "staging"
-  - name: "${prefix}-vm2"
+  - name: "vm2"
     location: "canadacentral"
     size: "Standard_DS2_v2"
     tags:
