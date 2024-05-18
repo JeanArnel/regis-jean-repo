@@ -33,38 +33,12 @@ resource "azurerm_network_interface" "main" {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 resource "azurerm_virtual_machine" "main" {
   for_each            = local.virtual_machines_map
-  name                  = "${var.prefix}-vm"
+  name                  = "${var.prefix}-vm-${each.key}"
   location              = azurerm_resource_group.regis-jean-rg.location
   resource_group_name   = azurerm_resource_group.regis-jean-rg.name
-  network_interface_ids = azurerm_network_interface.main[each.key]
+  network_interface_ids = azurerm_network_interface.main[each.key].id
   vm_size               = "Standard_DS1_v2"
 
   # Uncomment this line to delete the OS disk automatically when deleting the VM
