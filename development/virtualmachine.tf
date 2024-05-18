@@ -17,8 +17,8 @@ resource "azurerm_virtual_network" "main" {
 //  location            = local.azurerm_resource_group.regis-jean-rg.location
 //  location            = azurerm_resource_group.${var.regis-jean-rg}.location
 //  resource_group_name = local.azurerm_resource_group.regis-jean-rg.name
-  location            = local.regis-jean-rg.location
-  resource_group_name = local.regis-jean-rg.name
+  location            = azurerm_resource_group.regis-jean-rg.location
+  resource_group_name = azurerm_resource_group.regis-jean-rg.name
 }
 
 resource "azurerm_subnet" "internal" {
