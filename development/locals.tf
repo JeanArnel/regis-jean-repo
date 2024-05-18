@@ -1,4 +1,5 @@
 
+/*
 locals {
   # This creates a list of maps by decoding YAML files found in the specified directory.
   # It uses a fileset function to find all .yaml files that do not start with an underscore.
@@ -19,19 +20,9 @@ locals {
     ]
   ])
 }
+*/
 
 
-locals {
-  # Assuming 'virtual_machines.yaml' is the file where your list of VMs is defined
-  virtual_machines_config = yamldecode(file("${path.module}/configs/virtual_machines.yaml"))
-
-  # This creates a list of virtual machine names by iterating over the decoded YAML content
-  virtual_machine_names = [for vm in local.virtual_machines_config.virtual_machines : vm.name]
-}
-
-
-
-/*
 
 locals {
   # Common tags for all resources
@@ -41,6 +32,9 @@ locals {
 
   # Assuming 'virtual_machines.yaml' is the file where your list of VMs is defined
   virtual_machines_config = yamldecode(file("${path.module}/configs/virtual_machines.yaml"))
+
+  # This creates a list of virtual machine names by iterating over the decoded YAML content
+  virtual_machine_names = [for vm in local.virtual_machines_config.virtual_machines : vm.name]
 
   # Common location for all resources
 //  location = "canadacentral"
@@ -63,7 +57,7 @@ locals {
   os_sku       = "22_04-lts"
   os_version   = "latest"
 }
-*/
+
 
 
 
