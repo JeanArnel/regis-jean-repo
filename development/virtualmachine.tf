@@ -21,13 +21,13 @@ resource "azurerm_subnet" "internal" {
 
 resource "azurerm_network_interface" "main" {
   for_each            = local.virtual_machines_map
-  name                = "${var.prefix}-nic"
+  name                = "${var.prefix}-nic-${each.key}"
   location            = var.azurerm_network_interface_location
   resource_group_name = var.azurerm_network_interface_resource_group_name
 
   ip_configuration {
     name                          = var.azurerm_network_interface_ip_configuration_name
-    subnet_id                     = azurerm_subnet.internal[each.key]
+    subnet_id                     = azurerm_subnet.internal[each.key].id
     private_ip_address_allocation = var.azurerm_network_interface_rivate_ip_address_allocation
   }
 }
