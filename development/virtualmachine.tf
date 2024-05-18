@@ -30,37 +30,44 @@ resource "azurerm_subnet" "internal" {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 resource "azurerm_network_interface" "main" {
   name                = "${var.prefix}-nic"
-  location            = azurerm_resource_group.regis-jean-rg.location
-  resource_group_name = azurerm_resource_group.regis-jean-rg.name
+  location            = var.azurerm_network_interface_location
+  resource_group_name = var.azurerm_network_interface_resource_group_name
 
   ip_configuration {
-    name                          = "testconfiguration1"
-    subnet_id                     = azurerm_subnet.internal.id
-    private_ip_address_allocation = "Dynamic"
+    name                          = var.azurerm_network_interface_ip_configuration_name
+    subnet_id                     = var.azurerm_network_interface_ip_configuration_subnet_id
+    private_ip_address_allocation = var.azurerm_network_interface_rivate_ip_address_allocation
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 resource "azurerm_virtual_machine" "main" {
   name                  = "${var.prefix}-vm"
