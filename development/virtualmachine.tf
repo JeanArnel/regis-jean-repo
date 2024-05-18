@@ -1,11 +1,7 @@
 resource "azurerm_virtual_network" "main" {
   for_each            = local.virtual_machines_map
-//  name                = "${var.prefix}-network"
-    name                = each.value.name
+  name                = each.value.name
   address_space       = var.resource_group_name_network_address
-//  location            = local.azurerm_resource_group.regis-jean-rg.location
-//  location            = azurerm_resource_group.${var.regis-jean-rg}.location
-//  resource_group_name = local.azurerm_resource_group.regis-jean-rg.name
   location            = each.value.location
   resource_group_name = var.resource_group_name_network_name
 }
@@ -37,7 +33,6 @@ resource "azurerm_network_interface" "main" {
 resource "azurerm_virtual_machine" "main" {
   for_each              = local.virtual_machines_map
   name                  = each.value.name
-//  location              = azurerm_resource_group.regis-jean-rg.location
   location              = each.value.location
   resource_group_name   = azurerm_resource_group.regis-jean-rg.name
   network_interface_ids = [azurerm_network_interface.main[each.key].id]
