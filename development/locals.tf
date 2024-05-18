@@ -1,5 +1,30 @@
 
 locals {
+  # This creates a list of maps by decoding YAML files found in the specified directory.
+  # It uses a fileset function to find all .yaml files that do not start with an underscore.
+  myregissql_app = [
+    for f in fileset("${path.module}/config", "[^_]*.yaml") : 
+      yamldecode(file("${path.module}/config/${f}"))
+  ]
+
+  # This flattens a list of lists into a single list.
+  # It iterates over each 'app' in the previously created 'myregissql_app' list.
+  # For each 'app', it attempts to iterate over 'listofmsqlapp' if it exists.
+  # If 'listofmsqlapp' does not exist, it defaults to an empty list ([]).
+  # For each 'mysqlapps' in 'listofmsqlapp', it creates a map with a single key 'name'.
+  myregissql_app_list = flatten([
+    for app in local.myregissql_app : [
+      for mysqlapps in try(app.listofmsqlapp, []) : {
+        name = mysqlapps.name
+      }
+    ]
+  ])
+}
+
+
+
+
+locals {
   # Common tags for all resources
   common_tags = {
     environment = "staging"
