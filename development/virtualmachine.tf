@@ -60,6 +60,7 @@ resource "azurerm_network_interface" "main" {
 
 
 resource "azurerm_virtual_machine" "main" {
+  for_each            = local.virtual_machines_map
   name                  = "${var.prefix}-vm"
   location              = azurerm_resource_group.regis-jean-rg.location
   resource_group_name   = azurerm_resource_group.regis-jean-rg.name
