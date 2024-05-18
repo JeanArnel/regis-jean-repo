@@ -12,7 +12,7 @@ resource "azurerm_virtual_network" "main" {
 
 
 resource "azurerm_subnet" "internal" {
-  for_each            = local.virtual_machines_map
+  for_each             = local.virtual_machines_map
   name                 = var.azurerm_subnet_name
   resource_group_name  = var.azurerm_subnet_name_resource_group_name
   virtual_network_name = var.azurerm_subnet_virtual_network_name
@@ -22,7 +22,7 @@ resource "azurerm_subnet" "internal" {
 
 resource "azurerm_network_interface" "main" {
   for_each            = local.virtual_machines_map
-  name                = "${var.prefix}-nic-${each.key}"
+  name                = "${each.key}-nic"
   location            = var.azurerm_network_interface_location
   resource_group_name = var.azurerm_network_interface_resource_group_name
 
@@ -35,8 +35,8 @@ resource "azurerm_network_interface" "main" {
 
 
 resource "azurerm_virtual_machine" "main" {
-  for_each            = local.virtual_machines_map
-  name                  = "${var.prefix}-vm-${each.key}"
+  for_each              = local.virtual_machines_map
+  name                  = "${each.key}-vm"
   location              = azurerm_resource_group.regis-jean-rg.location
   resource_group_name   = azurerm_resource_group.regis-jean-rg.name
   network_interface_ids = [azurerm_network_interface.main[each.key].id]
