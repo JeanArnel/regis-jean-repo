@@ -45,9 +45,13 @@ locals {
   # Resource names
   // resource_group_name = "${var.prefix}-resources"
 //  resource_group_name = "regis-jean-rg-test"
-  network_name        = "${var.prefix}-network"
-  nic_name            = "${var.prefix}-nic"
-  vm_name             = "${var.prefix}-vm"
+//  network_name        = "${var.prefix}-network"
+//  nic_name            = "${var.prefix}-nic"
+//  vm_name             = "${var.prefix}-vm"
+    network_name        = "network"
+    nic_name            = "nic"
+    vm_name             = "vm"
+
 
   # Network configurations
   address_space = ["10.0.0.0/16"]
