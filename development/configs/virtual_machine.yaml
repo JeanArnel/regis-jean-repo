@@ -1,4 +1,5 @@
-prefix: "tfvmex"
+
+//prefix: "tfvmex"
 
 resource_group:
   name: "${prefix}-resources"
