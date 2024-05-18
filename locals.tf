@@ -27,6 +27,7 @@ locals {
   os_version   = "latest"
 }
 
+/*
 # Then, you can reference these local values in your resources like this:
 resource "azurerm_resource_group" "example" {
   name     = local.resource_group_name
@@ -34,3 +35,4 @@ resource "azurerm_resource_group" "example" {
 }
 
 # ... and so on for the other resources.
+*/
