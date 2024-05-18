@@ -22,17 +22,6 @@ resource "azurerm_virtual_network" "main" {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
 resource "azurerm_subnet" "internal" {
   name                 = "internal"
   resource_group_name  = azurerm_resource_group.regis-jean-rg.name
