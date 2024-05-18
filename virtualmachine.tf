@@ -1,3 +1,5 @@
+/*
+
 variable "prefix" {
   default = "tfvmex"
 }
@@ -6,6 +8,8 @@ resource "azurerm_resource_group" "example" {
   name     = "${var.prefix}-resources"
   location = "West Europe"
 }
+
+*/
 
 resource "azurerm_virtual_network" "main" {
   name                = "${var.prefix}-network"
