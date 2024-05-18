@@ -39,6 +39,9 @@ locals {
     environment = "staging"
   }
 
+  # Assuming 'virtual_machines.yaml' is the file where your list of VMs is defined
+  virtual_machines_config = yamldecode(file("${path.module}/configs/virtual_machines.yaml"))
+
   # Common location for all resources
 //  location = "canadacentral"
 
