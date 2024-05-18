@@ -9,7 +9,8 @@ locals {
   location = "canadacentral"
 
   # Resource names
-  resource_group_name = "${var.prefix}-resources"
+  // resource_group_name = "${var.prefix}-resources"
+  resource_group_name = "regis-jean-rg-test"
   network_name        = "${var.prefix}-network"
   nic_name            = "${var.prefix}-nic"
   vm_name             = "${var.prefix}-vm"
