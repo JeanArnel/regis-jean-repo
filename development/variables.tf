@@ -93,11 +93,6 @@ variable "azurerm_network_interface_ip_configuration_name" {
   default = "testconfiguration1"
 }
 
-variable "azurerm_network_interface_ip_configuration_subnet_id" {
-  type = string
-  default = azurerm_subnet.internal.id
-}
-
 variable "azurerm_network_interface_rivate_ip_address_allocation" {
   type = string
   default = "Dynamic"
