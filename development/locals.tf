@@ -31,7 +31,7 @@ locals {
   }
 
   # Assuming 'virtual_machines.yaml' is the file where your list of VMs is defined
-  virtual_machines_config = yamldecode(file("${path.module}/configs/virtual_machines.yaml"))
+  virtual_machines_config = yamldecode(file("${path.module}/configs/virtual_machine.yaml"))
 
   # This creates a list of virtual machine names by iterating over the decoded YAML content
   virtual_machine_names = [for vm in local.virtual_machines_config.virtual_machines : vm.name]
