@@ -37,7 +37,7 @@ resource "azurerm_network_interface" "main" {
 
   ip_configuration {
     name                          = var.azurerm_network_interface_ip_configuration_name
-    subnet_id                     = var.azurerm_network_interface_ip_configuration_subnet_id
+    subnet_id                     = azurerm_subnet.internal.id
     private_ip_address_allocation = var.azurerm_network_interface_rivate_ip_address_allocation
   }
 }
