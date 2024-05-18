@@ -1,6 +1,6 @@
 resource "azurerm_resource_group" "regis-jean-rg" {
   name     = "regis-jean-rg-test"
-  location = "canadacentral"
+  location = "West Europe"
 }
 
 /*
